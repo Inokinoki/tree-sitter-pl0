@@ -260,5 +260,9 @@
   {
     "type": "while",
     "named": false
+  },
+  {
+    "type": "write",
+    "named": false
   }
 ]

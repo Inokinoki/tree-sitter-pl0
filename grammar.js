@@ -21,9 +21,8 @@ module.exports = grammar({
     */
    block: $ => seq(
      optional(seq("const", $.ident, "=", $.number, repeat(seq(",", $.ident, "=", $.number)), ";")),
-     optional(seq("var", $.ident, repeat(seq(",", $.ident)))),
-     repeat(seq("procedure", $.ident, ";", $.block, ";")),
-     $.statement
+     optional(seq("var", $.ident, repeat(seq(",", $.ident)), ";")),
+     seq(repeat(seq("procedure", $.ident, ";", $.block, ";")), $.statement),
    ),
 
     /*
@@ -38,9 +37,11 @@ module.exports = grammar({
       seq("call", $.ident),
       seq("?", $.ident),
       seq("!", $.expression),
-      seq("begin", repeat(seq($.statement, ";")), "end"),
+      seq("begin", optional($.statement), repeat(seq(";", $.statement)), "end"),
       seq("if", $.condition, "then", $.statement),
-      seq("while", $.condition, "do", $.statement)
+      seq("while", $.condition, "do", $.statement),
+      // Add write statement
+      seq("write", "(", $.expression, repeat(seq(",", $.expression)), ")"),
     ),
 
     /*
