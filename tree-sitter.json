@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "pl0",
+      "camelcase": "pl0",
+      "scope": "source.pl0",
+      "file-types": [
+        ".pl0"
+      ],
+      "injection-regex": "^pl0$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "PL0 grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Inoki",
+        "email": "veyx.shaw@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/tree-sitter/tree-sitter-pl0"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
